@@ -1,0 +1,7 @@
+{
+  "name": "PayPalIonic",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}

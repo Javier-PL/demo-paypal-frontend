@@ -1,0 +1,67 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Paypal Subscriptions 
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+
+
+<div *ngFor="let product of products">
+
+<ion-list>
+  <ion-list-header  >
+    <ion-label>{{product.name}}</ion-label>
+  </ion-list-header>
+
+  <!--(ionChange)="segmentChanged($event)"-->
+  <ion-segment > 
+    <ion-segment-button (click)="selectPlan(plan.id)" class="subs-segment"  *ngFor="let plan of plans;let i = index" [disabled]="!allowSubscribe">
+      <ion-label style="font-weight: bold" color="dark">{{plan.name}}</ion-label>
+      <ion-label *ngIf="i== 0"style=" margin-bottom:0" color="dark">€8,5/mo</ion-label>
+      <ion-label *ngIf="i== 1"style=" margin-bottom:0" color="dark">€5,5/mo</ion-label>
+      <ion-label *ngIf="i== 2"style=" margin-bottom:0" color="dark">€10/mo</ion-label>
+      <ion-label *ngIf="i== 0" color="danger">Save 30%</ion-label>
+      <ion-label *ngIf="i== 1" color="danger">Save 50%</ion-label>
+      <ion-label *ngIf="i== 2" color="dark">REGULAR</ion-label>
+      <!--<ion-label style=" margin-bottom:0" color="dark">€11/mo</ion-label>
+      <ion-label color="danger">Save 33%</ion-label>-->
+    </ion-segment-button>
+  </ion-segment>
+
+
+
+</ion-list>
+<ion-text style="font-size: 12px;margin: 16px;text-align: center;" >This is a recurring supscription that you can cancel any time.</ion-text>
+</div>
+
+
+
+<ion-list>
+  <ion-list-header >
+    <ion-label>My Subscriptions</ion-label>
+  </ion-list-header>
+  <ion-item *ngFor="let subscription of subscriptions">
+    <ion-label >{{subscription.name}}</ion-label> <ion-button  class="cancel-button" (click)="cancelSubscription(subscription.subscriptionID)" >Cancel subscription</ion-button>
+  </ion-item>
+</ion-list>
+
+
+
+<ion-card>
+
+  <ion-card-content>
+    <div id="paypal-button-container" >
+      
+    </div>
+  </ion-card-content>
+</ion-card>
+
+
+
+</ion-content>

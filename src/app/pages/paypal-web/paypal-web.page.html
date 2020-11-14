@@ -1,0 +1,41 @@
+<ion-header>
+  <ion-toolbar color="primary">
+    <ion-buttons slot="start">
+      <ion-menu-button></ion-menu-button>
+    </ion-buttons>
+    <ion-title>
+      Single Payments
+    </ion-title>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-item (click)="setAmount(10)">Item 1</ion-item>
+  <ion-item (click)="setAmount(21)">Item 2</ion-item>
+  <ion-item (click)="setAmount(54)">Item 3</ion-item>
+  <ion-grid class="ion-text-center">
+    <ion-row>
+      <ion-col>
+        Use this Pay button in your PWA's payment page with the attached logic.
+      </ion-col>
+    </ion-row>
+  </ion-grid>
+  <ion-card class="welcome-card">
+    <ion-card-header>
+      <ion-row>
+        <ion-col>
+          Total Payment
+        </ion-col>
+        <ion-col *ngIf="paymentAmount !== ''">
+          {{currencyIcon}}{{paymentAmount}}
+        </ion-col>
+      </ion-row>
+    </ion-card-header>
+    <ion-card-content>
+      <div id="paypal-button-container">
+        
+      </div>
+    </ion-card-content>
+  </ion-card>
+
+</ion-content>
